@@ -24,7 +24,7 @@
             </header>
             <div id="profile">
                 <div id="profile-pic">
-                    <img src="images/people/liyulong.jpg">
+                    <img src="images/people/liyulong.jpg" id="profile-image">
                 </div>
                 <div id="profile-intro">
                     <div id="profile-name">Yulong Li</div>
@@ -215,6 +215,20 @@
                 lessPubsBtn.style.display = "inline";
               }
             }
+        </script>
+        <script>
+            const profileImage = document.getElementById('profile-image');
+            const originalSrc = profileImage.src;
+            const hoverImages = ['images/people/cycle.jpg'];
+            
+            profileImage.addEventListener('mouseenter', function() {
+                const randomImage = hoverImages[Math.floor(Math.random() * hoverImages.length)];
+                profileImage.src = randomImage;
+            });
+            
+            profileImage.addEventListener('mouseleave', function() {
+                profileImage.src = originalSrc;
+            });
         </script>
     </body>
 </html>
